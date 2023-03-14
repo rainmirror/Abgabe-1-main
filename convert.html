@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Temperature Conversion Functions</title>
+</head>
+<body>
+
+<script>
+    // TODO: Your JavaScript implementation for temperature conversion goes here.
+
+    function convertTemperature(temperature, fromUnit, toUnit) {
+
+        if (fromUnit === "celsius") {
+            if (toUnit === "kelvin") {
+                return console.log(temperature + 273.15);
+            } else if (toUnit === "fahrenheit") {
+                return console.log(temperature * 1.8 + 32);
+            } else if (toUnit === "celsius") {
+                return console.log(temperature);
+            } else {
+                return console.log("Error something is wrong!")
+            }
+        }
+        if(fromUnit === "fahrenheit"){
+            if(toUnit === "celsius"){
+                return console.log((temperature - 32) / 1.8);
+            } else if (toUnit === "kelvin"){
+                return console.log((temperature - 32) / 1.8 + 273.15);
+            } else if (toUnit === "fahrenheit"){
+                return console.log(temperature);
+            } else{
+                return console.log("Error something is wrong!")
+            }
+        }
+        if(fromUnit === "kelvin"){
+            if(toUnit === "celsius"){
+                return console.log(temperature - 273.15);
+            } else if (toUnit === "fahrenheit"){
+                return console.log((temperature - 273.15) * 1.8 + 32);
+            } else if (toUnit === "kelvin"){
+                return console.log(temperature);
+            } else{
+                return console.log("Error something is wrong!")
+            }
+        }
+        if(fromUnit || toUnit !== "kelvin" || "celsius" || "fahrenheit"){
+            return console.log("Error something is wrong!")
+        }
+    }
+
+    convertTemperature(35, "celsius", "fahrenheit") // 95
+    convertTemperature(35, "celsius", "kelvin") // 308.15
+    convertTemperature(35, "celsius", "celsius") // 35
+    convertTemperature(35, "kelvin", "fahrenheit") // -396.67
+    convertTemperature(35, "kelvin", "kelvin") // 35
+    convertTemperature(35, "kelvin", "celsius") // -238.14999999999998
+    convertTemperature(35, "fahrenheit", "fahrenheit") // 35
+    convertTemperature(35, "fahrenheit", "kelvin") // 274.81666666666666
+    convertTemperature(35, "fahrenheit", "celsius") // 1.6666666666666667
+    convertTemperature(35, "degrees", "degrees") // Invalid argument: degrees
+    convertTemperature(35, "celsius", "degrees") // Invalid argument: degrees
+    convertTemperature(35, "degrees", "fahrenheit") // Invalid argument: degrees
+</script>
+</body>
+</html>

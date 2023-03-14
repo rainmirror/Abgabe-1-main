@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Extract from Array</title>
+</head>
+<body>
+<script>
+    // TODO: Your JavaScript implementation for array extraction goes here.
+
+    const exampleArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+    function arrayExtract(array, start, length) {
+
+        if(start == undefined || length == undefined || array == undefined) {
+            return [];
+        }
+
+        if(length <= 0) {
+            return [];
+        }
+
+        if(array.length < 1) {
+            return [];
+        }
+
+        const startNegativ = start < 0;
+        let arrayNew = [];
+        let startPos = start;
+
+        if(startNegativ) {
+            startPos = array.length + start;
+        }
+
+        let i = startPos;
+        while(i < startPos + length) {
+            if(array[i] != undefined) {
+                arrayNew.push(array[i]);
+            }
+            i++;
+        }
+
+        return arrayNew;
+    }
+
+    console.log(arrayExtract(exampleArray, 1, 4));
+    console.log(arrayExtract(exampleArray, 1, 10));
+    console.log(arrayExtract(exampleArray, 12, 2));
+    console.log(arrayExtract(exampleArray, -5, 3));
+    console.log(arrayExtract(exampleArray, -11, 2));
+    console.log(arrayExtract(exampleArray, -13, 2));
+    console.log(arrayExtract());
+    console.log(arrayExtract(exampleArray));
+    console.log(arrayExtract(exampleArray, 0));
+
+
+</script>
+</body>
+</html>
